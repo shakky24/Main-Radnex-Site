@@ -11,7 +11,7 @@
   --radius-lg: 16px;
   --radius-md: 12px;
   --radius-sm: 10px;
-  --container: min(1180px, calc(100vw - 2rem));
+  --container: min(1180px, calc(100vw - 3rem));
 }
 
 * {
@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,6 +28,7 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text);
   background: #ffffff;
+  overflow-x: hidden;
 }
 
 img {
@@ -172,7 +174,7 @@ h3 {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 2rem;
   align-items: stretch;
 }
@@ -210,12 +212,12 @@ h3 {
 }
 
 .hero-copy h1 {
-  font-size: clamp(2.8rem, 4vw, 4.8rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   margin-bottom: 1rem;
 }
 
 .hero-lead {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   color: var(--text);
   font-weight: 600;
   max-width: 48rem;
@@ -224,7 +226,7 @@ h3 {
 .hero-body {
   margin-top: 1.25rem;
   max-width: 42rem;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .hero-person {
@@ -258,11 +260,13 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
-  padding: 0.85rem 1.4rem;
-  border-radius: 999px;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -277,27 +281,40 @@ h3 {
 
 .btn-primary {
   color: #fff;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
-  box-shadow: 0 18px 30px -18px rgba(0, 102, 255, 0.75);
+  background: #0066ff;
+  box-shadow: 0 10px 22px rgba(0, 102, 255, 0.22);
+}
+
+.btn-primary:hover {
+  background: #0052cc;
 }
 
 .btn-secondary {
-  color: var(--primary);
+  color: #0066ff;
   background: #fff;
-  border: 1px solid rgba(0, 102, 255, 0.18);
-  box-shadow: var(--shadow);
+  border: 2px solid #0066ff;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: #eff6ff;
 }
 
 .btn-light {
   background: #fff;
-  color: var(--primary);
-  box-shadow: var(--shadow);
+  color: #0066ff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .btn-whatsapp {
   color: #fff;
-  background: linear-gradient(135deg, #20c55e, #138a43);
-  box-shadow: 0 18px 30px -18px rgba(23, 163, 74, 0.7);
+  background: #16a34a;
+  box-shadow: 0 10px 22px rgba(22, 163, 74, 0.22);
+}
+
+.btn-whatsapp:hover {
+  background: #15803d;
 }
 
 .hero-panel {
@@ -358,7 +375,7 @@ h3 {
 
 .hero-card h2 {
   margin-top: 1.5rem;
-  font-size: clamp(1.8rem, 2.7vw, 2.7rem);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
   max-width: 12ch;
 }
 
@@ -448,11 +465,11 @@ h3 {
 .tech-card h2,
 .cta-section h2,
 .narrow h2 {
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
 }
 
 .section-lead {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .split-grid {
@@ -478,16 +495,16 @@ h3 {
 
 .doctor-card {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 1.5rem;
-  align-items: center;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
 }
 
 .doctor-media img {
   width: 100%;
-  height: 100%;
-  min-height: 280px;
+  height: 300px;
   object-fit: cover;
+  object-position: top;
   border-radius: 12px;
 }
 
@@ -511,7 +528,7 @@ h3 {
 
 .service-card h3 {
   margin: 1rem 0 0.8rem;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
 }
 
 .service-icon {
@@ -620,9 +637,12 @@ h3 {
   .hero-grid,
   .split-grid,
   .services-grid,
-  .trust-grid,
   .doctor-card {
     grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .site-nav {
@@ -674,15 +694,26 @@ h3 {
 
 @media (max-width: 720px) {
   .site-header .container {
-    min-height: 76px;
+    min-height: 64px;
   }
 
   .hero {
-    padding-top: 3.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
   }
 
   .section {
-    padding: 4rem 0;
+    padding: 3rem 0;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .trust-item {
+    font-size: 0.85rem;
+    padding: 0.9rem 1rem;
   }
 
   .hero-card,
@@ -693,8 +724,12 @@ h3 {
   .pathway-card,
   .entry-card,
   .tech-card {
-    padding: 1.4rem;
-    border-radius: 16px;
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .hero-card {
+    min-height: auto;
   }
 
   .btn {
@@ -702,7 +737,84 @@ h3 {
   }
 
   .brand img {
-    height: 52px;
-    max-width: min(60vw, 260px);
+    height: 40px;
+  }
+
+  .doctor-profile {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .doctor-stat-value {
+    font-size: 1.25rem;
+  }
+
+  #location .container > div > div {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Doctor Profile Section */
+.doctor-profile {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+  background: #fff;
+  border: 1px solid #f3f4f6;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+}
+
+.doctor-profile-media img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 12px;
+}
+
+.doctor-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.doctor-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.doctor-stat-label {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 0.15rem;
+  line-height: 1.4;
+}
+
+.doctor-award {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.875rem 1rem;
+  background: #eff6ff;
+  border-radius: 10px;
+  border: 1px solid #dbeafe;
+}
+
+@media (max-width: 980px) {
+  .doctor-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-profile-media img {
+    height: 260px;
+    object-position: center top;
   }
 }

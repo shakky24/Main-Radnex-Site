@@ -1,20 +1,25 @@
-const toggleButton = document.querySelector(".nav-toggle");
-const navigation = document.querySelector(".site-nav");
+// Mobile menu (new header)
+const menuBtn = document.querySelector("[data-mobile-menu-btn]");
+const menuPanel = document.querySelector("[data-mobile-menu]");
+const iconOpen = document.querySelector("[data-menu-icon-open]");
+const iconClose = document.querySelector("[data-menu-icon-close]");
 
-if (toggleButton && navigation) {
-  toggleButton.addEventListener("click", () => {
-    const isOpen = navigation.classList.toggle("is-open");
-    toggleButton.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  navigation.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navigation.classList.remove("is-open");
-      toggleButton.setAttribute("aria-expanded", "false");
-    });
+if (menuBtn && menuPanel) {
+  const setOpen = (open) => {
+    menuPanel.classList.toggle("hidden", !open);
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (iconOpen && iconClose) {
+      iconOpen.classList.toggle("hidden", open);
+      iconClose.classList.toggle("hidden", !open);
+    }
+  };
+  menuBtn.addEventListener("click", () => setOpen(menuPanel.classList.contains("hidden")));
+  document.querySelectorAll("[data-mobile-nav-link]").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
   });
 }
 
+// Scroll reveal
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -24,11 +29,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  {
-    threshold: 0.18,
-  }
+  { threshold: 0.18 }
 );
 
-document.querySelectorAll(".reveal").forEach((element) => {
-  observer.observe(element);
-});
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));

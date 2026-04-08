@@ -14,37 +14,57 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            colors: { primary: "#0066FF" },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              serif: ["Merriweather", "Georgia", "serif"],
+            },
+          },
+        },
+      };
+    </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <a class="brand" href="#top" aria-label="Radnex Interventional Science home">
-          <img src="./Logo.jpeg" alt="Radnex Interventional Science logo" />
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Open navigation"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <div id="site-nav" class="site-nav">
-          <nav class="site-nav-links" aria-label="Primary navigation">
-            <a href="#thyroid-interventions">Thyroid Nodule Interventions</a>
-            <a href="#uterine-artery-embolisation">Uterine Artery Embolisation</a>
-            <a href="#breast-interventions">Breast Interventions</a>
-            <a href="#varicose-veins">Varicose Veins</a>
-          </nav>
-          <a class="btn btn-primary nav-contact-btn" href="#contact">Contact Now</a>
+  <body class="font-sans antialiased text-gray-900 bg-white">
+    <header class="sticky top-0 z-50 bg-[#fafafa] shadow-sm border-b border-gray-200/80">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex-shrink-0">
+            <a href="#top" class="flex items-center gap-3" aria-label="Radnex home">
+              <img src="./logo.jpeg" alt="Radnex Interventional Science" class="h-10 w-auto" />
+            </a>
+          </div>
+          <div class="hidden md:flex md:items-center md:gap-6">
+            <a href="#services" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">Services</a>
+            <a href="#about" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors">About</a>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm font-semibold rounded-lg transition-colors inline-block">Contact Now</a>
+          </div>
+          <div class="md:hidden">
+            <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none" aria-expanded="false" aria-controls="mobile-nav-panel" data-mobile-menu-btn>
+              <span class="sr-only">Open main menu</span>
+              <svg data-menu-icon-open class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg data-menu-icon-close class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
+        <div id="mobile-nav-panel" class="hidden md:hidden border-t border-gray-200" data-mobile-menu>
+          <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#services" class="text-gray-700 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium" data-mobile-nav-link>Services</a>
+            <a href="#about" class="text-gray-700 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium" data-mobile-nav-link>About</a>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium" data-mobile-nav-link>Contact Now</a>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main id="top">
@@ -151,28 +171,73 @@
             </p>
           </div>
 
-          <article class="doctor-card reveal">
-            <div class="doctor-media">
-              <img src="./doctor.jpeg" alt="Dr Rahul Deep G" />
-            </div>
-            <div class="doctor-copy">
-              <p class="eyebrow">Founder</p>
-              <h2>Dr Rahul Deep G</h2>
-              <p class="doctor-title">Consultant Interventional Radiologist</p>
-              <ul class="bullet-list compact">
-                <li>5000+ fibroid nodules treated</li>
-                <li>4500+ thyroid nodules treated</li>
-                <li>Specialist in embolisation and ablation procedures</li>
-                <li>Expertise in advanced image-guided interventions</li>
-              </ul>
-              <p class="doctor-focus">
-                Focused on precision-based treatment across multiple conditions
-              </p>
-            </div>
-          </article>
+          <div class="split-card reveal">
+            <p class="eyebrow">Our Approach</p>
+            <h2>Treating disease at its source.</h2>
+            <p>
+              Interventional radiology allows us to reach the exact site of disease through
+              <strong>image-guided access</strong> — without large incisions or prolonged recovery.
+            </p>
+            <ul class="bullet-list">
+              <li>Targeted, minimally invasive techniques</li>
+              <li>Reduced trauma to surrounding tissue</li>
+              <li>Faster recovery compared to open surgery</li>
+              <li>Applied across multiple specialties</li>
+            </ul>
+          </div>
         </div>
       </section>
 
+      <section class="section section-light">
+        <div class="container">
+          <div class="doctor-profile reveal">
+            <div class="doctor-profile-media">
+              <img src="./doctor.jpeg" alt="Dr Rahul Deep G" />
+            </div>
+            <div class="doctor-profile-body">
+              <p class="eyebrow">Founder &amp; Lead Specialist</p>
+              <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem); margin-bottom:0.25rem;">Dr Rahul Deep G</h2>
+              <p style="color:#0066ff; font-weight:700; font-size:0.95rem; margin:0;">Consultant Interventional Radiologist</p>
+              <p style="color:#6b7280; font-size:0.8rem; margin-top:0.2rem;">MBBS, MD Radio-Diagnosis, FNVIR, FAGE</p>
+
+              <div style="display:flex; align-items:center; gap:0.4rem; margin-top:0.75rem;">
+                <div style="display:flex; gap:2px;">
+                  <svg style="width:18px;height:18px;fill:#facc15;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg style="width:18px;height:18px;fill:#facc15;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg style="width:18px;height:18px;fill:#facc15;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg style="width:18px;height:18px;fill:#facc15;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg style="width:18px;height:18px;fill:#facc15;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <span style="font-weight:700; color:#111827;">5.0</span>
+              </div>
+
+              <div class="doctor-stats">
+                <div class="doctor-stat">
+                  <div class="doctor-stat-value">5,000+</div>
+                  <div class="doctor-stat-label">Fibroid nodules treated</div>
+                </div>
+                <div class="doctor-stat">
+                  <div class="doctor-stat-value">4,500+</div>
+                  <div class="doctor-stat-label">Thyroid nodules treated</div>
+                </div>
+              </div>
+
+              <div class="doctor-award">
+                <div>
+                  <div style="font-weight:700; color:#111827; font-size:0.9rem;">International Award</div>
+                  <div style="font-size:0.78rem; color:#6b7280; margin-top:0.1rem;">Best Researcher Award</div>
+                </div>
+              </div>
+
+              <ul class="bullet-list" style="margin-top:1.5rem;">
+                <li>Specialist in embolisation and ablation procedures</li>
+                <li>Expertise in advanced image-guided interventions</li>
+                <li>Focused on precision-based treatment across multiple conditions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="services" class="section section-light">
         <div class="container">
           <div class="section-heading reveal">
@@ -279,6 +344,54 @@
               <strong>real-time navigation inside the body</strong>, improving both
               safety and outcomes.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="location" class="section section-light">
+        <div class="container">
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <p class="eyebrow">Find Us</p>
+            <h2 style="font-size: clamp(1.5rem, 2.5vw, 2.25rem);">Visit Radnex Interventional Science</h2>
+            <p style="margin-top: 0.75rem;">Conveniently located in Bangalore</p>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 1100px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start;">
+              <div style="border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.022783027034!2d77.6293464!3d13.0342211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae136e8453e915%3A0xe20c6a3804bcb5cf!2sDr.%20Rahul%20Deep%20G%20%7C%20Interventional%20Radiologist!5e0!3m2!1sen!2sin!4v1775630481307!5m2!1sen!2sin"
+                  width="100%" height="420" style="border:0; display:block;"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  title="Radnex Interventional Science location"
+                ></iframe>
+              </div>
+              <div style="background:#fff; border-radius:16px; border:1px solid #f3f4f6; box-shadow:var(--shadow); padding:2rem; display:flex; flex-direction:column; gap:1.25rem;">
+                <div style="display:flex; align-items:flex-start; gap:1rem;">
+                  <div style="flex-shrink:0; width:40px; height:40px; border-radius:10px; background:#eff6ff; display:flex; align-items:center; justify-content:center; color:#0066ff;">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  </div>
+                  <div>
+                    <div style="font-weight:700; color:#111827; margin-bottom:0.25rem;">Address</div>
+                    <div style="font-size:0.875rem; color:#4b5563; line-height:1.6;">Ground Floor, Altius Multi-speciality Hospital,<br/>Outer Ring Rd, 5th Block, HBR Layout 4th Block,<br/>HBR Layout, Bengaluru, Karnataka 560043</div>
+                  </div>
+                </div>
+                <div style="border-top:1px solid #f3f4f6;"></div>
+                <div style="display:flex; align-items:flex-start; gap:1rem;">
+                  <div style="flex-shrink:0; width:40px; height:40px; border-radius:10px; background:#eff6ff; display:flex; align-items:center; justify-content:center; color:#0066ff;">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  </div>
+                  <div>
+                    <div style="font-weight:700; color:#111827; margin-bottom:0.25rem;">Phone</div>
+                    <a href="tel:+919886828444" style="font-size:0.875rem; color:#0066ff; font-weight:600;">+91 98868 28444</a>
+                  </div>
+                </div>
+                <div style="border-top:1px solid #f3f4f6;"></div>
+                <a href="https://maps.google.com/?q=Altius+Multi-speciality+Hospital+HBR+Layout+Bengaluru" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.75rem 1.5rem; background:#0066ff; color:#fff; font-weight:600; border-radius:8px; transition:background 180ms ease; text-decoration:none;">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                  Get Directions
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
