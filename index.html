@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="font-sans antialiased text-gray-900 bg-white">
-    <header class="sticky top-0 z-50 bg-[#fafafa] shadow-sm border-b border-gray-200/80">
+    <header class="sticky top-0 z-50 bg-[#fafafa] shadow-sm border-b border-gray-200/80" style="position:sticky; top:0; z-index:50;">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
         <div class="flex items-center justify-between h-16">
           <div class="flex-shrink-0">
@@ -68,6 +68,23 @@
     </header>
 
     <main id="top">
+      <section class="section-light" id="gallery" style="padding:0;">
+        <div id="carousel" style="position:relative; width:100%; overflow:hidden;">
+            <div class="carousel-track" style="display:flex; transition:transform 600ms ease;">
+              <div style="flex:0 0 100%; width:100%;"><img src="./1.jpeg" alt="Dr Rahul Deep G performing a procedure" style="width:100%; height:auto; display:block; object-fit:cover;" /></div>
+              <div style="flex:0 0 100%; width:100%;"><img src="./2.jpeg" alt="Advanced interventional radiology at Radnex" style="width:100%; height:auto; display:block; object-fit:cover;" /></div>
+              <div style="flex:0 0 100%; width:100%;"><img src="./3.jpeg" alt="Minimally invasive treatment at Radnex" style="width:100%; height:auto; display:block; object-fit:cover;" /></div>
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Previous slide">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="carousel-btn carousel-next" aria-label="Next slide">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+            <div class="carousel-dots"></div>
+        </div>
+      </section>
+
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
@@ -122,29 +139,6 @@
           <div class="trust-item">4500+ Thyroid Nodules Treated</div>
           <div class="trust-item">Specialized Interventional Radiology Centre</div>
           <div class="trust-item">Led by Experienced Interventional Radiologist</div>
-        </div>
-      </section>
-
-      <section class="section section-light" id="gallery">
-        <div class="container">
-          <div style="text-align:center; max-width:720px; margin:0 auto 2rem;">
-            <p class="eyebrow">Our Practice</p>
-            <h2>Inside Radnex Interventional Science</h2>
-          </div>
-          <div class="carousel-wrap reveal" id="carousel">
-            <div class="carousel-track">
-              <div class="carousel-slide"><img src="./1.jpeg" alt="Dr Rahul Deep G performing a procedure" /></div>
-              <div class="carousel-slide"><img src="./2.jpeg" alt="Advanced interventional radiology at Radnex" /></div>
-              <div class="carousel-slide"><img src="./3.jpeg" alt="Minimally invasive treatment at Radnex" /></div>
-            </div>
-            <button class="carousel-btn carousel-prev" aria-label="Previous slide">
-              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button class="carousel-btn carousel-next" aria-label="Next slide">
-              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-            <div class="carousel-dots"></div>
-          </div>
         </div>
       </section>
 
